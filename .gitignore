@@ -1,0 +1,35 @@
+# ── Environment variables ──
+.env
+.env.*
+!.env.example
+
+# ── Node / Next.js ──
+node_modules/
+.next/
+dist/
+build/
+
+# ── Python / FastAPI ──
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+*.egg-info/
+
+# ── Secrets & keys ──
+*.pem
+*.key
+*.p12
+id_rsa*
+id_ed25519*
+
+# ── Claude Code ──
+.claude/settings.local.json
+
+# ── IDE ──
+.vscode/
+.idea/
+
+# ── OS ──
+.DS_Store
+Thumbs.db
