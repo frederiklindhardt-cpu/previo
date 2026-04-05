@@ -19,7 +19,6 @@
             --text-muted: #4a5568;
             --accent: #38bdf8;
             --accent-glow: rgba(56, 189, 248, 0.15);
-            --accent-subtle: rgba(56, 189, 248, 0.08);
             --border: rgba(255, 255, 255, 0.06);
             --success: #34d399;
         }
@@ -31,7 +30,7 @@
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
@@ -110,6 +109,7 @@
             font-weight: 400;
             max-width: 820px;
             margin-bottom: 1.5rem;
+            text-wrap: balance;
             animation: fadeUp 0.8s ease both;
         }
         h1 em {
@@ -117,6 +117,7 @@
             color: var(--accent);
         }
 
+        /* Verb cycling */
         .verb-wrap {
             display: inline-block;
             position: relative;
@@ -126,18 +127,20 @@
             display: inline-block;
             color: var(--accent);
             font-style: italic;
-            transition: opacity 0.35s ease, transform 0.35s ease;
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
         .verb.exit {
-            opacity: 0;
-            transform: translateY(-10px);
             position: absolute;
+            top: 0;
             left: 0;
+            opacity: 0;
+            transform: translateY(-8px);
             white-space: nowrap;
+            pointer-events: none;
         }
         .verb.enter {
             opacity: 0;
-            transform: translateY(10px);
+            transform: translateY(8px);
         }
         .verb.visible {
             opacity: 1;
@@ -148,6 +151,7 @@
             font-size: 1.05rem;
             color: var(--text-secondary);
             font-weight: 300;
+            max-width: 520px;
             margin-bottom: 2.75rem;
             animation: fadeUp 0.8s ease 0.1s both;
         }
@@ -215,10 +219,18 @@
             font-size: 0.78rem;
             color: var(--text-muted);
             letter-spacing: 0.02em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.15rem 0;
         }
-        .trust span {
-            margin: 0 0.4rem;
-            opacity: 0.4;
+        .trust-item {
+            white-space: nowrap;
+        }
+        .trust-sep {
+            margin: 0 0.5rem;
+            opacity: 0.35;
         }
 
         /* --- Footer --- */
@@ -245,12 +257,21 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
         /* --- Responsive --- */
         @media (max-width: 600px) {
             nav { padding: 1.25rem 1.5rem; }
+            main { padding: 1.5rem 1.5rem 3rem; }
             .email-form { flex-direction: column; }
-            .email-form button { padding: 0.9rem; }
-            .trust { font-size: 0.72rem; }
+            .email-form button { padding: 0.9rem; min-height: 44px; }
+            .trust { flex-direction: column; gap: 0.3rem; font-size: 0.72rem; }
+            .trust-sep { display: none; }
         }
     </style>
 </head>
@@ -277,7 +298,13 @@
         <div class="form-success" id="formSuccess">
             You're on the list. We'll be in touch.
         </div>
-        <p class="trust">UK &amp; EU employers <span>·</span> FCA-regulated environments <span>·</span> GDPR compliant</p>
+        <p class="trust">
+            <span class="trust-item">UK &amp; EU employers</span>
+            <span class="trust-sep">·</span>
+            <span class="trust-item">FCA-regulated environments</span>
+            <span class="trust-sep">·</span>
+            <span class="trust-item">GDPR compliant</span>
+        </p>
     </div>
 </main>
 
@@ -289,18 +316,21 @@
     const verbs = ['hire', 'back', 'appoint', 'endorse'];
     let current = 0;
 
+    // Disable animation if user prefers reduced motion
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     function cycleVerb() {
+        if (prefersReduced) return;
+
         const next = (current + 1) % verbs.length;
         const v1 = document.getElementById('verb');
         const v2 = document.getElementById('verb2');
 
-        // Exit current
         v1.classList.remove('visible');
         v1.classList.add('exit');
         v2.classList.remove('visible');
         v2.classList.add('exit');
 
-        // Build incoming spans
         const n1 = document.createElement('span');
         n1.className = 'verb enter';
         n1.textContent = verbs[next];
@@ -311,7 +341,6 @@
         v1.parentNode.appendChild(n1);
         v2.parentNode.appendChild(n2);
 
-        // Trigger enter animation
         requestAnimationFrame(() => requestAnimationFrame(() => {
             n1.classList.add('visible');
             n2.classList.add('visible');
