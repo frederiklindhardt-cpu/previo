@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Previo Group — Know Before You Hire</title>
+    <title>Previo — Know Before You Hire</title>
     <meta name="description" content="Automated pre-employment screening for regulated firms. Adverse media, sanctions checks, and employment verification. One auditable score.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -36,9 +36,6 @@
             color: var(--text-1);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
-            min-height: 100svh;
-            display: flex;
-            flex-direction: column;
             overflow-x: hidden;
         }
 
@@ -62,24 +59,37 @@
         }
         .glow-1 {
             width: 500px; height: 500px;
-            background: radial-gradient(circle, rgba(129,140,248,0.18) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(129,140,248,0.15) 0%, transparent 70%);
             top: -180px; left: 50%;
             transform: translateX(-50%);
         }
         .glow-2 {
             width: 300px; height: 300px;
-            background: radial-gradient(circle, rgba(99,102,241,0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%);
             bottom: 0; right: -80px;
         }
 
-        /* Nav */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        /* ── Nav ── */
         nav {
-            position: relative;
-            z-index: 10;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.75rem 3rem;
+            padding: 1.25rem 3rem;
+            background: rgba(8, 9, 15, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-2);
         }
 
         .logo {
@@ -91,38 +101,82 @@
         }
         .logo-dot { color: var(--accent); }
 
-        .nav-contact {
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        .nav-links a {
             font-size: 0.8rem;
             color: var(--text-2);
             text-decoration: none;
-            letter-spacing: 0.07em;
-            text-transform: uppercase;
+            letter-spacing: 0.03em;
             transition: color 0.2s;
         }
-        .nav-contact:hover { color: var(--text-1); }
+        .nav-links a:hover { color: var(--text-1); }
+        .nav-cta {
+            font-size: 0.78rem !important;
+            color: var(--bg) !important;
+            background: var(--accent);
+            padding: 0.5rem 1.1rem;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: background 0.2s !important;
+        }
+        .nav-cta:hover { background: #a5b4fc; }
 
-        /* Main */
-        main {
+        /* ── Section shared ── */
+        section {
             position: relative;
             z-index: 1;
-            flex: 1;
+        }
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.25rem;
+        }
+        .section-label-dot {
+            width: 5px; height: 5px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+        .section-heading {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            line-height: 1.12;
+            letter-spacing: -0.03em;
+            font-weight: 400;
+            text-wrap: balance;
+        }
+        .section-heading em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        /* ── Hero ── */
+        .hero {
+            min-height: 100svh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 2rem 3rem 2rem;
+            padding-top: 5rem;
+        }
+        .hero .container {
+            display: flex;
+            align-items: center;
             gap: 5rem;
-            max-width: 1200px;
-            margin: 0 auto;
             width: 100%;
         }
-
-        /* Left column */
-        .hero {
+        .hero-left {
             flex: 1;
-            max-width: 580px;
+            max-width: 560px;
         }
-
-        .eyebrow {
+        .hero-eyebrow {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
@@ -135,27 +189,37 @@
             opacity: 0;
             animation: fadeUp 0.6s ease 0.1s forwards;
         }
-        .eyebrow-dot {
+        .hero-eyebrow-dot {
             width: 5px; height: 5px;
             border-radius: 50%;
             background: var(--accent);
             animation: pulse 2s ease-in-out infinite;
         }
 
-        h1 {
+        .hero h1 {
             font-family: 'Instrument Serif', serif;
             font-size: clamp(2.8rem, 4.5vw, 4.2rem);
             line-height: 1.07;
             letter-spacing: -0.03em;
             font-weight: 400;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
             text-wrap: balance;
             opacity: 0;
             animation: fadeUp 0.6s ease 0.2s forwards;
         }
-        h1 em {
+        .hero h1 em {
             font-style: italic;
             color: var(--accent);
+        }
+
+        .hero-sub {
+            font-size: 1.05rem;
+            color: var(--text-2);
+            line-height: 1.65;
+            max-width: 460px;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeUp 0.6s ease 0.3s forwards;
         }
 
         .for-line {
@@ -164,7 +228,7 @@
             gap: 0.4rem;
             margin-bottom: 2.5rem;
             opacity: 0;
-            animation: fadeUp 0.6s ease 0.3s forwards;
+            animation: fadeUp 0.6s ease 0.35s forwards;
         }
         .for-tag {
             font-size: 0.75rem;
@@ -240,7 +304,7 @@
         }
 
         .trust {
-            margin-top: 1rem;
+            margin-top: 0.85rem;
             font-size: 0.73rem;
             color: var(--text-3);
             letter-spacing: 0.02em;
@@ -251,14 +315,13 @@
         }
         .trust-sep { margin: 0 0.4rem; opacity: 0.5; }
 
-        /* Right column — score card */
+        /* Score card */
         .card-wrap {
             flex-shrink: 0;
             width: 280px;
             opacity: 0;
             animation: fadeUp 0.7s ease 0.5s forwards;
         }
-
         .score-card {
             background: var(--bg-2);
             border: 1px solid var(--border);
@@ -269,7 +332,6 @@
                 0 24px 48px rgba(0,0,0,0.5),
                 0 0 60px rgba(129,140,248,0.06);
         }
-
         .card-header {
             padding: 1.25rem 1.25rem 1rem;
             border-bottom: 1px solid var(--border-2);
@@ -277,147 +339,286 @@
             justify-content: space-between;
             align-items: flex-start;
         }
-        .card-name {
-            font-size: 0.82rem;
-            font-weight: 500;
-            color: var(--text-1);
-            margin-bottom: 0.2rem;
-        }
-        .card-role {
-            font-size: 0.7rem;
-            color: var(--text-2);
-        }
+        .card-name { font-size: 0.82rem; font-weight: 500; color: var(--text-1); margin-bottom: 0.2rem; }
+        .card-role { font-size: 0.7rem; color: var(--text-2); }
         .card-status {
-            font-size: 0.65rem;
-            font-weight: 500;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            color: var(--clear);
-            background: rgba(52,211,153,0.1);
-            border: 1px solid rgba(52,211,153,0.2);
-            border-radius: 100px;
-            padding: 0.25rem 0.6rem;
+            font-size: 0.65rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase;
+            color: var(--clear); background: rgba(52,211,153,0.1); border: 1px solid rgba(52,211,153,0.2);
+            border-radius: 100px; padding: 0.25rem 0.6rem;
         }
-
         .card-score-wrap {
-            padding: 1.25rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
+            padding: 1.25rem; display: flex; align-items: center; gap: 1rem;
             border-bottom: 1px solid var(--border-2);
         }
-        .score-ring {
+        .score-ring { position: relative; width: 56px; height: 56px; flex-shrink: 0; }
+        .score-ring svg { transform: rotate(-90deg); }
+        .score-ring-track { fill: none; stroke: var(--bg-3); stroke-width: 4; }
+        .score-ring-fill { fill: none; stroke: var(--clear); stroke-width: 4; stroke-linecap: round; stroke-dasharray: 138.2; stroke-dashoffset: 27.64; }
+        .score-number { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 0.82rem; font-weight: 500; color: var(--text-1); }
+        .score-label { font-size: 0.68rem; color: var(--text-2); margin-bottom: 0.2rem; }
+        .score-band { font-size: 0.78rem; font-weight: 500; color: var(--clear); }
+        .card-checks { padding: 1rem 1.25rem; display: flex; flex-direction: column; gap: 0.6rem; }
+        .check-row { display: flex; align-items: center; justify-content: space-between; font-size: 0.72rem; }
+        .check-label { color: var(--text-2); }
+        .check-result { display: flex; align-items: center; gap: 0.3rem; font-size: 0.68rem; font-weight: 500; }
+        .check-result.clear { color: var(--clear); }
+        .check-result.caution { color: var(--caution); }
+        .check-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+        .card-footer {
+            padding: 0.875rem 1.25rem; border-top: 1px solid var(--border-2);
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        .card-footer-icon { width: 14px; height: 14px; color: var(--text-3); flex-shrink: 0; }
+        .card-footer-text { font-size: 0.65rem; color: var(--text-3); line-height: 1.4; }
+
+        /* ── How It Works ── */
+        .how-it-works {
+            padding: 7rem 0;
+            border-top: 1px solid var(--border-2);
+        }
+        .how-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .how-header p {
+            font-size: 1rem;
+            color: var(--text-2);
+            max-width: 520px;
+            margin: 1rem auto 0;
+            line-height: 1.65;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
             position: relative;
-            width: 56px;
-            height: 56px;
-            flex-shrink: 0;
         }
-        .score-ring svg {
-            transform: rotate(-90deg);
-        }
-        .score-ring-track {
-            fill: none;
-            stroke: var(--bg-3);
-            stroke-width: 4;
-        }
-        .score-ring-fill {
-            fill: none;
-            stroke: var(--clear);
-            stroke-width: 4;
-            stroke-linecap: round;
-            stroke-dasharray: 138.2;
-            stroke-dashoffset: 27.64; /* 138.2 * (1 - 0.8) */
-        }
-        .score-number {
+        /* Connecting line */
+        .steps::before {
+            content: '';
             position: absolute;
-            inset: 0;
+            top: 28px;
+            left: calc(12.5% + 1rem);
+            right: calc(12.5% + 1rem);
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border), var(--border), transparent);
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+        .step-number {
+            width: 56px; height: 56px;
+            border-radius: 50%;
+            background: var(--bg-2);
+            border: 1px solid var(--border);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.82rem;
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.2rem;
+            color: var(--accent);
+            margin: 0 auto 1.25rem;
+            position: relative;
+            z-index: 1;
+        }
+        .step-title {
+            font-size: 0.88rem;
             font-weight: 500;
+            margin-bottom: 0.5rem;
             color: var(--text-1);
         }
-        .score-meta {}
-        .score-label {
-            font-size: 0.68rem;
+        .step-desc {
+            font-size: 0.8rem;
             color: var(--text-2);
-            margin-bottom: 0.2rem;
-        }
-        .score-band {
-            font-size: 0.78rem;
-            font-weight: 500;
-            color: var(--clear);
+            line-height: 1.55;
         }
 
-        .card-checks {
-            padding: 1rem 1.25rem;
+        /* ── What We Check ── */
+        .checks-section {
+            padding: 7rem 0;
+            border-top: 1px solid var(--border-2);
+        }
+        .checks-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+            margin-top: 3rem;
+        }
+        .checks-left {}
+        .checks-left p {
+            font-size: 0.95rem;
+            color: var(--text-2);
+            line-height: 1.65;
+            margin-top: 1rem;
+            max-width: 440px;
+        }
+
+        .check-cards {
             display: flex;
             flex-direction: column;
-            gap: 0.6rem;
+            gap: 1rem;
         }
-        .check-row {
+        .check-card {
+            background: var(--bg-2);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+        .check-card-icon {
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            background: var(--accent-dim);
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            font-size: 0.72rem;
-        }
-        .check-label {
-            color: var(--text-2);
-        }
-        .check-result {
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-            font-size: 0.68rem;
-            font-weight: 500;
-        }
-        .check-result.clear { color: var(--clear); }
-        .check-result.caution { color: var(--caution); }
-        .check-dot {
-            width: 5px; height: 5px;
-            border-radius: 50%;
-            background: currentColor;
-        }
-
-        .card-footer {
-            padding: 0.875rem 1.25rem;
-            border-top: 1px solid var(--border-2);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .card-footer-icon {
-            width: 14px; height: 14px;
-            color: var(--text-3);
+            justify-content: center;
             flex-shrink: 0;
         }
-        .card-footer-text {
-            font-size: 0.65rem;
-            color: var(--text-3);
-            line-height: 1.4;
+        .check-card-icon svg {
+            width: 18px; height: 18px;
+            color: var(--accent);
+        }
+        .check-card-title {
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+        }
+        .check-card-desc {
+            font-size: 0.78rem;
+            color: var(--text-2);
+            line-height: 1.55;
         }
 
-        /* Footer */
+        /* ── Score Bands ── */
+        .bands-section {
+            padding: 7rem 0;
+            border-top: 1px solid var(--border-2);
+        }
+        .bands-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .bands-header p {
+            font-size: 1rem;
+            color: var(--text-2);
+            max-width: 480px;
+            margin: 1rem auto 0;
+            line-height: 1.65;
+        }
+        .bands-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .band-card {
+            background: var(--bg-2);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.75rem;
+            text-align: center;
+        }
+        .band-range {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.8rem;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.3rem;
+        }
+        .band-range.clear { color: var(--clear); }
+        .band-range.caution { color: var(--caution); }
+        .band-range.dnp { color: #f87171; }
+        .band-name {
+            font-size: 0.82rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        .band-desc {
+            font-size: 0.75rem;
+            color: var(--text-2);
+            line-height: 1.55;
+        }
+
+        /* ── CTA ── */
+        .cta-section {
+            padding: 7rem 0;
+            border-top: 1px solid var(--border-2);
+            text-align: center;
+        }
+        .cta-section .section-heading {
+            margin-bottom: 1rem;
+        }
+        .cta-section p {
+            font-size: 1rem;
+            color: var(--text-2);
+            margin-bottom: 2.5rem;
+            max-width: 420px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.65;
+        }
+        .cta-section .email-form {
+            margin: 0 auto;
+        }
+        .cta-section .form-success {
+            margin: 0 auto;
+        }
+        .cta-section .trust {
+            justify-content: center;
+        }
+
+        /* ── Footer ── */
         footer {
             position: relative;
             z-index: 1;
-            text-align: center;
-            padding: 1.5rem 3rem;
+            padding: 3rem;
             border-top: 1px solid var(--border-2);
         }
-        footer p {
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        .footer-left p {
             font-size: 0.72rem;
             color: var(--text-3);
         }
-        footer a {
+        .footer-left a {
             color: var(--text-3);
             text-decoration: none;
             transition: color 0.2s;
         }
-        footer a:hover { color: var(--text-2); }
+        .footer-left a:hover { color: var(--text-2); }
 
-        /* Animations */
+        .footer-newnor {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .footer-newnor span {
+            font-size: 0.7rem;
+            color: var(--text-3);
+            letter-spacing: 0.02em;
+        }
+        .footer-newnor img {
+            height: 18px;
+            opacity: 0.35;
+            transition: opacity 0.2s;
+            filter: brightness(0) invert(1);
+        }
+        .footer-newnor:hover img { opacity: 0.55; }
+
+        /* ── Animations ── */
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(16px); }
             to   { opacity: 1; transform: translateY(0); }
@@ -427,26 +628,46 @@
             50%       { opacity: 0.5; transform: scale(0.8); }
         }
 
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after {
                 animation-duration: 0.01ms !important;
                 transition-duration: 0.01ms !important;
             }
+            .reveal { opacity: 1; transform: none; }
         }
 
-        /* Responsive */
+        /* ── Responsive ── */
         @media (max-width: 860px) {
-            main { flex-direction: column; gap: 3rem; padding: 2rem 1.75rem 2rem; align-items: flex-start; }
-            .card-wrap { width: 100%; max-width: 340px; align-self: center; }
+            .container { padding: 0 1.75rem; }
             nav { padding: 1.25rem 1.75rem; }
-            footer { padding: 1.5rem 1.75rem; }
+            .hero .container { flex-direction: column; gap: 3rem; }
+            .card-wrap { width: 100%; max-width: 320px; align-self: center; }
+            .steps { grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
+            .steps::before { display: none; }
+            .checks-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .bands-row { grid-template-columns: 1fr; max-width: 320px; }
+            footer { padding: 2rem 1.75rem; }
+            .footer-inner { flex-direction: column; text-align: center; }
         }
         @media (max-width: 520px) {
-            h1 { font-size: 2.6rem; }
+            .hero h1 { font-size: 2.4rem; }
             .email-form { flex-direction: column; }
             .email-form button { padding: 0.85rem; min-height: 44px; }
-            .trust { flex-direction: column; align-items: flex-start; gap: 0.2rem; }
+            .trust { flex-direction: column; align-items: center; gap: 0.2rem; }
             .trust-sep { display: none; }
+            .steps { grid-template-columns: 1fr; }
+            .nav-links a:not(.nav-cta) { display: none; }
         }
     </style>
 </head>
@@ -455,131 +676,322 @@
 <div class="glow glow-1"></div>
 <div class="glow glow-2"></div>
 
+<!-- Nav -->
 <nav>
     <a href="/" class="logo">Previo<span class="logo-dot">.</span></a>
-    <a href="mailto:hello@previo-group.com" class="nav-contact">Contact</a>
+    <div class="nav-links">
+        <a href="#how">How it works</a>
+        <a href="#checks">What we check</a>
+        <a href="mailto:hello@previo-group.com">Contact</a>
+        <a href="#cta" class="nav-cta">Request Access</a>
+    </div>
 </nav>
 
-<main>
-    <div class="hero">
-        <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            Early Access
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-left">
+            <div class="hero-eyebrow">
+                <span class="hero-eyebrow-dot"></span>
+                Early Access
+            </div>
+
+            <h1>Know who you're putting your <em>name</em> behind.</h1>
+
+            <p class="hero-sub">Automated pre-employment screening for regulated firms. Adverse media, sanctions, and employment history — returned as one auditable score.</p>
+
+            <div class="for-line">
+                <span class="for-tag">Regulated firms</span>
+                <span class="for-tag">Political parties</span>
+                <span class="for-tag">Professional services</span>
+                <span class="for-tag">Senior leadership</span>
+            </div>
+
+            <div class="form-wrap">
+                <form class="email-form" id="waitlistForm" action="https://formspree.io/f/xojpdrgr" method="POST">
+                    <input type="email" name="email" placeholder="Your work email" required autocomplete="email" />
+                    <button type="submit">Request Access</button>
+                </form>
+                <div class="form-success" id="formSuccess">
+                    You're on the list — we'll be in touch.
+                </div>
+                <p class="trust">
+                    <span>UK &amp; EU employers</span>
+                    <span class="trust-sep">&middot;</span>
+                    <span>FCA-regulated environments</span>
+                    <span class="trust-sep">&middot;</span>
+                    <span>GDPR compliant</span>
+                </p>
+            </div>
         </div>
 
-        <h1>Know who you're putting your name behind.</h1>
-
-        <div class="for-line">
-            <span class="for-tag">Regulated firms</span>
-            <span class="for-tag">Political parties</span>
-            <span class="for-tag">Professional services</span>
-            <span class="for-tag">Senior leadership</span>
+        <div class="card-wrap">
+            <div class="score-card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-name">James Whitfield</div>
+                        <div class="card-role">Head of Compliance &middot; Barclays</div>
+                    </div>
+                    <div class="card-status">Clear</div>
+                </div>
+                <div class="card-score-wrap">
+                    <div class="score-ring">
+                        <svg width="56" height="56" viewBox="0 0 56 56">
+                            <circle class="score-ring-track" cx="28" cy="28" r="22"/>
+                            <circle class="score-ring-fill" cx="28" cy="28" r="22"/>
+                        </svg>
+                        <div class="score-number">84</div>
+                    </div>
+                    <div class="score-meta">
+                        <div class="score-label">Previo Score</div>
+                        <div class="score-band">Clear — Low Risk</div>
+                    </div>
+                </div>
+                <div class="card-checks">
+                    <div class="check-row">
+                        <span class="check-label">Sanctions &amp; watchlists</span>
+                        <span class="check-result clear"><span class="check-dot"></span>No match</span>
+                    </div>
+                    <div class="check-row">
+                        <span class="check-label">Adverse media</span>
+                        <span class="check-result clear"><span class="check-dot"></span>Nothing material</span>
+                    </div>
+                    <div class="check-row">
+                        <span class="check-label">Employment history</span>
+                        <span class="check-result clear"><span class="check-dot"></span>Verified</span>
+                    </div>
+                    <div class="check-row">
+                        <span class="check-label">FCA Register</span>
+                        <span class="check-result clear"><span class="check-dot"></span>Authorised</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <svg class="card-footer-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                        <path d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
+                    </svg>
+                    <span class="card-footer-text">GDPR Article 7 &middot; Candidate consented &middot; Audit trail attached</span>
+                </div>
+            </div>
         </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="how-it-works" id="how">
+    <div class="container">
+        <div class="how-header reveal">
+            <div class="section-label">
+                <span class="section-label-dot"></span>
+                How it works
+            </div>
+            <h2 class="section-heading">From submission to report <em>in hours,</em> not weeks.</h2>
+            <p>You submit a candidate. We handle the rest — consent, checks, and a clear recommendation delivered straight to your dashboard.</p>
+        </div>
+
+        <div class="steps reveal">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3 class="step-title">You submit a candidate</h3>
+                <p class="step-desc">Name, email, and the role they're being considered for. That's all we need to get started.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3 class="step-title">Candidate consents</h3>
+                <p class="step-desc">We send them a secure invite. They provide consent, personal details, and employment history — fully GDPR compliant.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3 class="step-title">Automated checks run</h3>
+                <p class="step-desc">Sanctions, adverse media, employment verification, and professional register checks — all run automatically.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3 class="step-title">You get a clear answer</h3>
+                <p class="step-desc">A single score, a risk band, and a plain-English report. Clear results are delivered instantly. Anything flagged goes through human review first.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- What We Check -->
+<section class="checks-section" id="checks">
+    <div class="container">
+        <div class="checks-grid">
+            <div class="checks-left reveal">
+                <div class="section-label">
+                    <span class="section-label-dot"></span>
+                    What we check
+                </div>
+                <h2 class="section-heading">The things that <em>matter</em> before you hire.</h2>
+                <p>Every check is mapped against the role being filled — a compliance officer and a board advisor are held to different standards. Findings are weighted by severity, recency, and relevance.</p>
+            </div>
+            <div class="check-cards reveal">
+                <div class="check-card">
+                    <div class="check-card-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126z"/>
+                            <path d="M12 15.75h.007v.008H12v-.008z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="check-card-title">Sanctions &amp; watchlists</div>
+                        <p class="check-card-desc">Cross-referenced against global sanctions lists. An active match is always flagged, regardless of role.</p>
+                    </div>
+                </div>
+                <div class="check-card">
+                    <div class="check-card-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="check-card-title">Adverse media</div>
+                        <p class="check-card-desc">Open-source intelligence scan for criminal, regulatory, and reputational risk — weighted by severity and how recent the coverage is.</p>
+                    </div>
+                </div>
+                <div class="check-card">
+                    <div class="check-card-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="check-card-title">Employment verification</div>
+                        <p class="check-card-desc">5-year history cross-checked against Companies House, FCA Register, SRA, and uploaded documents. Gaps over 18 months are flagged.</p>
+                    </div>
+                </div>
+                <div class="check-card">
+                    <div class="check-card-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="check-card-title">Professional registers</div>
+                        <p class="check-card-desc">Verification against FCA, PRA, SRA, and other relevant regulatory registers to confirm authorisation status.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Score Bands -->
+<section class="bands-section">
+    <div class="container">
+        <div class="bands-header reveal">
+            <div class="section-label">
+                <span class="section-label-dot"></span>
+                The Previo Score
+            </div>
+            <h2 class="section-heading">One score. <em>Three outcomes.</em></h2>
+            <p>Every candidate is scored 0–100. The result determines the recommendation — and whether human review is needed before you see it.</p>
+        </div>
+
+        <div class="bands-row reveal">
+            <div class="band-card">
+                <div class="band-range clear">80–100</div>
+                <div class="band-name">Clear</div>
+                <p class="band-desc">No material findings. Report delivered automatically — no delays.</p>
+            </div>
+            <div class="band-card">
+                <div class="band-range caution">50–79</div>
+                <div class="band-name">Caution</div>
+                <p class="band-desc">Findings that warrant attention. A human reviewer checks before the report reaches you.</p>
+            </div>
+            <div class="band-card">
+                <div class="band-range dnp">0–49</div>
+                <div class="band-name">Do Not Proceed</div>
+                <p class="band-desc">Serious flags identified. Human-reviewed and delivered with full context.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Bottom CTA -->
+<section class="cta-section" id="cta">
+    <div class="container reveal">
+        <div class="section-label">
+            <span class="section-label-dot"></span>
+            Get started
+        </div>
+        <h2 class="section-heading">Ready to screen <em>smarter?</em></h2>
+        <p>Join the waitlist. We'll reach out when your access is ready.</p>
 
         <div class="form-wrap">
-            <form class="email-form" id="waitlistForm" action="https://formspree.io/f/xojpdrgr" method="POST">
+            <form class="email-form" id="waitlistForm2" action="https://formspree.io/f/xojpdrgr" method="POST">
                 <input type="email" name="email" placeholder="Your work email" required autocomplete="email" />
                 <button type="submit">Request Access</button>
             </form>
-            <div class="form-success" id="formSuccess">
+            <div class="form-success" id="formSuccess2">
                 You're on the list — we'll be in touch.
             </div>
             <p class="trust">
                 <span>UK &amp; EU employers</span>
-                <span class="trust-sep">·</span>
-                <span>FCA-regulated environments</span>
-                <span class="trust-sep">·</span>
+                <span class="trust-sep">&middot;</span>
                 <span>GDPR compliant</span>
             </p>
         </div>
     </div>
+</section>
 
-    <div class="card-wrap">
-        <div class="score-card">
-            <div class="card-header">
-                <div>
-                    <div class="card-name">James Whitfield</div>
-                    <div class="card-role">Head of Compliance · Barclays</div>
-                </div>
-                <div class="card-status">Clear</div>
-            </div>
-
-            <div class="card-score-wrap">
-                <div class="score-ring">
-                    <svg width="56" height="56" viewBox="0 0 56 56">
-                        <circle class="score-ring-track" cx="28" cy="28" r="22"/>
-                        <circle class="score-ring-fill" cx="28" cy="28" r="22"/>
-                    </svg>
-                    <div class="score-number">84</div>
-                </div>
-                <div class="score-meta">
-                    <div class="score-label">Previo Score</div>
-                    <div class="score-band">Clear — Low Risk</div>
-                </div>
-            </div>
-
-            <div class="card-checks">
-                <div class="check-row">
-                    <span class="check-label">Sanctions &amp; watchlists</span>
-                    <span class="check-result clear"><span class="check-dot"></span>No match</span>
-                </div>
-                <div class="check-row">
-                    <span class="check-label">Adverse media</span>
-                    <span class="check-result clear"><span class="check-dot"></span>Nothing material</span>
-                </div>
-                <div class="check-row">
-                    <span class="check-label">Employment history</span>
-                    <span class="check-result clear"><span class="check-dot"></span>Verified</span>
-                </div>
-                <div class="check-row">
-                    <span class="check-label">FCA Register</span>
-                    <span class="check-result clear"><span class="check-dot"></span>Authorised</span>
-                </div>
-            </div>
-
-            <div class="card-footer">
-                <svg class="card-footer-icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                    <path d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
-                </svg>
-                <span class="card-footer-text">GDPR Article 7 · Candidate consented · Audit trail attached</span>
-            </div>
-        </div>
-    </div>
-</main>
-
+<!-- Footer -->
 <footer>
-    <p>&copy; 2026 Previo Group &middot; <a href="mailto:hello@previo-group.com">hello@previo-group.com</a></p>
+    <div class="footer-inner">
+        <div class="footer-left">
+            <p>&copy; 2026 Previo Group &middot; <a href="mailto:hello@previo-group.com">hello@previo-group.com</a></p>
+        </div>
+        <a href="https://www.newnor.dk/" target="_blank" rel="noopener" class="footer-newnor">
+            <span>A product of</span>
+            <img src="https://cdn.sanity.io/images/rzgwlf3y/production/faeb6e154c82c280e5d2a26b8eca103393f4ed6b-949x428.png" alt="NewNor Consulting" />
+        </a>
+    </div>
 </footer>
 
 <script>
-    document.getElementById('waitlistForm').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const form = this;
-        const btn = form.querySelector('button');
-        btn.textContent = 'Submitting…';
-        btn.disabled = true;
+    // Waitlist form handler (both forms)
+    document.querySelectorAll('[id^="waitlistForm"]').forEach(form => {
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button');
+            btn.textContent = 'Submitting…';
+            btn.disabled = true;
 
-        try {
-            const res = await fetch(form.action, {
-                method: 'POST',
-                body: new FormData(form),
-                headers: { 'Accept': 'application/json' }
-            });
-            if (res.ok) {
-                form.style.display = 'none';
-                document.getElementById('formSuccess').style.display = 'block';
-                document.querySelector('.trust').style.display = 'none';
-            } else {
+            try {
+                const res = await fetch(this.action, {
+                    method: 'POST',
+                    body: new FormData(this),
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (res.ok) {
+                    this.style.display = 'none';
+                    this.nextElementSibling.style.display = 'block';
+                    const trust = this.closest('.form-wrap').querySelector('.trust');
+                    if (trust) trust.style.display = 'none';
+                } else {
+                    btn.textContent = 'Request Access';
+                    btn.disabled = false;
+                    alert('Something went wrong. Please try again or email hello@previo-group.com');
+                }
+            } catch {
                 btn.textContent = 'Request Access';
                 btn.disabled = false;
                 alert('Something went wrong. Please try again or email hello@previo-group.com');
             }
-        } catch {
-            btn.textContent = 'Request Access';
-            btn.disabled = false;
-            alert('Something went wrong. Please try again or email hello@previo-group.com');
-        }
+        });
     });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+    reveals.forEach(el => observer.observe(el));
 </script>
 
 </body>
