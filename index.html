@@ -117,6 +117,33 @@
             color: var(--accent);
         }
 
+        .verb-wrap {
+            display: inline-block;
+            position: relative;
+            vertical-align: bottom;
+        }
+        .verb {
+            display: inline-block;
+            color: var(--accent);
+            font-style: italic;
+            transition: opacity 0.35s ease, transform 0.35s ease;
+        }
+        .verb.exit {
+            opacity: 0;
+            transform: translateY(-10px);
+            position: absolute;
+            left: 0;
+            white-space: nowrap;
+        }
+        .verb.enter {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        .verb.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .subtext {
             font-size: 1.05rem;
             color: var(--text-secondary);
@@ -238,7 +265,7 @@
 </nav>
 
 <main>
-    <h1>Know who you hire <em>before</em> you hire them</h1>
+    <h1>Know who you <span class="verb-wrap"><span class="verb visible" id="verb">hire</span></span> <em>before</em> you <span class="verb-wrap"><span class="verb visible" id="verb2">hire</span></span> them</h1>
 
     <p class="subtext">Pre-employment screening for regulated firms, political parties, and professional services.</p>
 
@@ -259,6 +286,48 @@
 </footer>
 
 <script>
+    const verbs = ['hire', 'back', 'appoint', 'endorse'];
+    let current = 0;
+
+    function cycleVerb() {
+        const next = (current + 1) % verbs.length;
+        const v1 = document.getElementById('verb');
+        const v2 = document.getElementById('verb2');
+
+        // Exit current
+        v1.classList.remove('visible');
+        v1.classList.add('exit');
+        v2.classList.remove('visible');
+        v2.classList.add('exit');
+
+        // Build incoming spans
+        const n1 = document.createElement('span');
+        n1.className = 'verb enter';
+        n1.textContent = verbs[next];
+        const n2 = document.createElement('span');
+        n2.className = 'verb enter';
+        n2.textContent = verbs[next];
+
+        v1.parentNode.appendChild(n1);
+        v2.parentNode.appendChild(n2);
+
+        // Trigger enter animation
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+            n1.classList.add('visible');
+            n2.classList.add('visible');
+        }));
+
+        setTimeout(() => {
+            v1.remove();
+            v2.remove();
+            n1.id = 'verb';
+            n2.id = 'verb2';
+            current = next;
+        }, 400);
+    }
+
+    setInterval(cycleVerb, 2800);
+
     document.getElementById('waitlistForm').addEventListener('submit', async function(e) {
         e.preventDefault();
         const form = this;
