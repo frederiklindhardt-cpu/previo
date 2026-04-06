@@ -683,7 +683,7 @@
         <a href="#how">How it works</a>
         <a href="#checks">What we check</a>
         <a href="mailto:hello@previo-group.com">Contact</a>
-        <a href="#cta" class="nav-cta">Request Access</a>
+        <a href="#cta" class="nav-cta">Get Early Access</a>
     </div>
 </nav>
 
@@ -710,7 +710,7 @@
             <div class="form-wrap">
                 <form class="email-form" id="waitlistForm" action="https://formspree.io/f/xojpdrgr" method="POST">
                     <input type="email" name="email" placeholder="Your work email" required autocomplete="email" />
-                    <button type="submit">Request Access</button>
+                    <button type="submit">Get Early Access</button>
                 </form>
                 <div class="form-success" id="formSuccess">
                     You're on the list — we'll be in touch.
@@ -921,7 +921,7 @@
         <div class="form-wrap">
             <form class="email-form" id="waitlistForm2" action="https://formspree.io/f/xojpdrgr" method="POST">
                 <input type="email" name="email" placeholder="Your work email" required autocomplete="email" />
-                <button type="submit">Request Access</button>
+                <button type="submit">Get Early Access</button>
             </form>
             <div class="form-success" id="formSuccess2">
                 You're on the list — we'll be in touch.
@@ -969,12 +969,12 @@
                     const trust = this.closest('.form-wrap').querySelector('.trust');
                     if (trust) trust.style.display = 'none';
                 } else {
-                    btn.textContent = 'Request Access';
+                    btn.textContent = 'Get Early Access';
                     btn.disabled = false;
                     alert('Something went wrong. Please try again or email hello@previo-group.com');
                 }
             } catch {
-                btn.textContent = 'Request Access';
+                btn.textContent = 'Get Early Access';
                 btn.disabled = false;
                 alert('Something went wrong. Please try again or email hello@previo-group.com');
             }
