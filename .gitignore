@@ -22,6 +22,14 @@ __pycache__/
 *.p12
 id_rsa*
 id_ed25519*
+LOGINS.txt
+
+# ── Infrastructure docs (contain IPs, config paths) ──
+OPENCLAW-SETUP.md
+
+# ── Build/export artifacts ──
+export-*.html
+*.zip
 
 # ── Claude Code ──
 .claude/settings.local.json
