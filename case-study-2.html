@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Previo — Case Study: The Cost of Not Screening</title>
-    <meta name="description" content="A real-world case study showing how pre-employment screening would have prevented a political party crisis — using only publicly available information.">
+    <title>Previo — Case Study: 17 Years of Public Warning Signs</title>
+    <meta name="description" content="A real-world case study showing how 17 years of public red flags across multiple institutions went unchecked — until it was too late.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -143,7 +143,7 @@
             font-size: clamp(0.95rem, 1.3vw, 1.1rem);
             color: var(--mid);
             line-height: 1.75;
-            max-width: 520px;
+            max-width: 560px;
             margin: 0 auto 3rem;
             opacity: 0;
             animation: fadeIn 0.8s ease 0.45s forwards;
@@ -298,11 +298,11 @@
         }
         .timeline-content p {
             font-size: 0.88rem;
-            line-height: 1.65;
-            color: var(--mid);
+            line-height: 1.7;
+            color: rgba(245, 243, 239, 0.6);
         }
+
         .timeline-source {
-            display: inline-block;
             font-size: 0.72rem;
             color: var(--dim);
             margin-top: 0.5rem;
@@ -311,140 +311,169 @@
 
         .timeline-flag {
             display: inline-block;
-            font-size: 0.62rem;
+            font-size: 0.68rem;
             font-weight: 600;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.06em;
             text-transform: uppercase;
-            padding: 0.2rem 0.6rem;
-            border-radius: 3px;
-            margin-top: 0.6rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            margin-top: 0.75rem;
         }
-        .flag-caution {
-            background: rgba(217, 119, 6, 0.12);
-            color: var(--caution);
-        }
-        .flag-danger {
-            background: rgba(220, 38, 38, 0.12);
-            color: var(--danger);
+        .flag-caution { background: rgba(217, 119, 6, 0.15); color: var(--caution); }
+        .flag-danger { background: rgba(220, 38, 38, 0.15); color: var(--danger); }
+        .flag-clear { background: rgba(5, 150, 105, 0.15); color: var(--clear); }
+
+        /* ── Score Card ── */
+        .score-section {
+            padding: 6rem 0;
         }
 
-        /* ── Score simulation ── */
-        .score-section {
-            padding: 8rem 0;
-        }
         .score-card {
-            max-width: 480px;
+            border-radius: 12px;
+            padding: 3rem;
+            max-width: 560px;
             margin: 0 auto;
             border: 1px solid rgba(255,255,255,0.08);
-            padding: 3rem;
         }
+
         .score-card-label {
-            font-size: 0.62rem;
-            font-weight: 600;
+            font-size: 0.68rem;
+            font-weight: 500;
             letter-spacing: 0.14em;
             text-transform: uppercase;
             color: var(--dim);
             margin-bottom: 2rem;
         }
+
         .score-card-name {
             font-family: 'Instrument Serif', serif;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             letter-spacing: -0.02em;
-            margin-bottom: 0.25rem;
         }
         .score-card-role {
-            font-size: 0.82rem;
-            color: var(--mid);
-            margin-bottom: 2.5rem;
+            font-size: 0.85rem;
+            color: var(--dim);
+            margin-bottom: 0.75rem;
         }
+
         .score-card-divider {
             height: 1px;
-            background: rgba(255,255,255,0.06);
-            margin-bottom: 2.5rem;
+            background: rgba(255,255,255,0.08);
+            margin: 1.5rem 0 2rem;
         }
+
         .score-card-score {
             display: flex;
             align-items: baseline;
-            gap: 1rem;
+            gap: 0.5rem;
             margin-bottom: 0.5rem;
         }
         .score-number {
             font-family: 'Instrument Serif', serif;
-            font-size: 4.5rem;
-            letter-spacing: -0.04em;
+            font-size: 5rem;
             line-height: 1;
-            color: var(--caution);
+            letter-spacing: -0.04em;
+            color: var(--danger);
         }
         .score-max {
-            font-size: 1rem;
+            font-size: 1.5rem;
             color: var(--dim);
         }
+
         .score-band {
-            display: inline-block;
-            font-size: 0.68rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            padding: 0.3rem 0.8rem;
-            border-radius: 3px;
-            background: rgba(217, 119, 6, 0.12);
-            color: var(--caution);
-            margin-bottom: 2.5rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--danger);
+            margin-bottom: 2rem;
         }
+
         .score-deductions {
             list-style: none;
         }
         .score-deductions li {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
-            padding: 0.6rem 0;
-            border-bottom: 1px solid rgba(255,255,255,0.04);
-            font-size: 0.82rem;
+            padding: 0.65rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.85rem;
         }
         .score-deductions li:last-child { border-bottom: none; }
-        .deduction-label { color: var(--mid); }
+        .deduction-label { color: rgba(245, 243, 239, 0.7); }
         .deduction-value {
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 500;
-            color: var(--caution);
-        }
-        .score-card-footer {
-            margin-top: 2rem;
-            font-size: 0.72rem;
-            color: var(--dim);
-            line-height: 1.6;
+            font-weight: 600;
+            color: var(--danger);
         }
 
-        /* ── Aftermath ── */
+        .score-card-footer {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            font-size: 0.72rem;
+            color: var(--dim);
+            line-height: 1.7;
+        }
+
+        /* ── Aftermath Grid ── */
         .aftermath-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1px;
-            background: rgba(12, 13, 15, 0.15);
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
             margin-top: 3rem;
         }
         .aftermath-cell {
-            padding: 2.5rem;
-            background: var(--ivory);
+            background: var(--white);
+            border-radius: 10px;
+            padding: 2rem;
         }
         .aftermath-cell-value {
             font-family: 'Instrument Serif', serif;
-            font-size: 2.2rem;
-            letter-spacing: -0.03em;
+            font-size: 1.5rem;
+            letter-spacing: -0.02em;
             color: var(--black);
             margin-bottom: 0.5rem;
-            line-height: 1.1;
         }
         .aftermath-cell-label {
             font-size: 0.78rem;
             color: var(--dim);
-            line-height: 1.5;
+            line-height: 1.6;
+        }
+
+        /* ── Pattern ── */
+        .pattern-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .pattern-card {
+            background: var(--black-2);
+            border-radius: 10px;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+        .pattern-card-institution {
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: 0.75rem;
+        }
+        .pattern-card h4 {
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--ivory);
+        }
+        .pattern-card p {
+            font-size: 0.82rem;
+            color: rgba(245, 243, 239, 0.55);
+            line-height: 1.7;
         }
 
         /* ── CTA ── */
         .cta-section {
-            padding: 10rem 0;
+            padding: 8rem 0;
             text-align: center;
         }
         .cta-section h2 {
@@ -544,13 +573,15 @@
             .score-section { padding: 5rem 0; }
             .score-card { padding: 2rem; }
             .score-number { font-size: 3.5rem; }
-            .aftermath-grid { grid-template-columns: 1fr; }
+            .aftermath-grid { grid-template-columns: 1fr 1fr; }
+            .pattern-grid { grid-template-columns: 1fr; }
             .cta-section { padding: 6rem 0; }
             .case-footer-inner { flex-direction: column; gap: 1.5rem; text-align: center; }
         }
 
         @media (max-width: 480px) {
             .hero-meta { flex-direction: column; gap: 1.5rem; }
+            .aftermath-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -561,28 +592,28 @@
     <a href="https://previo-group.com" class="logo">Previo<span class="logo-dot">.</span></a>
     <div class="nav-links">
         <a href="https://previo-group.com">Home</a>
-        <a href="https://previo-group.com/case-study-2.html">Case study 2</a>
+        <a href="https://previo-group.com/case-study.html">Case study 1</a>
         <a href="https://previo-group.com#how-it-works">How it works</a>
     </div>
 </nav>
 
 <!-- Hero -->
 <section class="hero section-dark">
-    <div class="hero-eyebrow">Case study</div>
-    <h1>Four days from election to expulsion</h1>
-    <p class="hero-sub">A political party's newest parliamentarian was expelled within days of winning his seat. The warning signs were already in public records -- months before the ballot.</p>
+    <div class="hero-eyebrow">Case study 02</div>
+    <h1>Seventeen years of warning signs</h1>
+    <p class="hero-sub">A prominent public figure was nominated for parliament despite a trail of dismissals, misconduct allegations, and financial irregularities stretching back to 2009 -- all in publicly available sources.</p>
     <div class="hero-meta">
         <div class="hero-meta-item">
+            <div class="hero-meta-value">8</div>
+            <div class="hero-meta-label">Pre-nomination findings</div>
+        </div>
+        <div class="hero-meta-item">
             <div class="hero-meta-value">3</div>
-            <div class="hero-meta-label">Findings pre-election</div>
+            <div class="hero-meta-label">Institutions with dismissals</div>
         </div>
         <div class="hero-meta-item">
-            <div class="hero-meta-value">0</div>
-            <div class="hero-meta-label">Checks conducted</div>
-        </div>
-        <div class="hero-meta-item">
-            <div class="hero-meta-value">4 days</div>
-            <div class="hero-meta-label">Election to crisis</div>
+            <div class="hero-meta-value">17 years</div>
+            <div class="hero-meta-label">Earliest red flag to crisis</div>
         </div>
     </div>
     <div class="scroll-line"></div>
@@ -593,20 +624,47 @@
     <div class="narrative contain reveal">
         <div class="label label-light">Background</div>
         <h2>The candidate</h2>
-        <p class="narrative-lead">In March 2026, a Danish political party put forward a candidate for the general election. He presented a clean criminal record and signed a formal integrity declaration confirming no prior bankruptcy disqualification or financial misconduct.</p>
-        <p>He won his seat on 24 March 2026. Four days later, the party expelled him -- stating he had "violated the declaration of truth he had signed, failed to provide truthful information, and repeatedly acted contrary to the party's values."</p>
-        <p>What followed was a cascade of revelations from DR, TV 2, Altinget, and Finans. But none of it was new. The underlying events had been in public records for months.</p>
+        <p class="narrative-lead">In late 2022, a Danish political party nominated a well-known public figure as a parliamentary candidate. He was a celebrated cultural leader with decades of high-profile institutional roles -- theatre director, media personality, political commentator.</p>
+        <p>Within months, a cascade of allegations emerged: workplace abuse, signature forgery, undeclared taxable benefits, and a pattern of senior dismissals spanning three separate institutions over seventeen years. He was expelled from his parliamentary group less than a year after entering parliament.</p>
+        <p>None of this was hidden. The information existed in published journalism, union complaints, and public records -- some of it dating back to 2009. A systematic screening would have surfaced the pattern before nomination day.</p>
         <div class="divider"></div>
-        <p>All information presented here comes from published journalism by Danish national media and publicly accessible government registries. No private or non-public data was used.</p>
+        <p>All information presented here comes from published journalism by DR, TV 2, Borsen, Altinget, Kristeligt Dagblad, and Kulturmonitor, as well as publicly accessible records. No private or non-public data was used.</p>
+    </div>
+</section>
+
+<!-- The Pattern -->
+<section class="section-dark">
+    <div class="narrative contain-wide reveal">
+        <div class="label label-dark">The pattern</div>
+        <h2>Three institutions. Same outcome.</h2>
+        <p class="narrative-lead" style="max-width: 700px;">Automated screening detects what manual vetting misses: patterns that repeat across time and institutions. Any single dismissal is explainable. Three is a signal.</p>
+
+        <div class="pattern-grid">
+            <div class="pattern-card">
+                <div class="pattern-card-institution">Institution 1 -- 2009</div>
+                <h4>Dismissed for undisclosed self-dealing</h4>
+                <p>Received DKK 168,000 in royalty payments from a production at the venue he directed -- without board knowledge or approval, in breach of his employment contract. An audit found no grounds for prosecution, but the board terminated him.</p>
+            </div>
+            <div class="pattern-card">
+                <div class="pattern-card-institution">Institution 2 -- prior role</div>
+                <h4>Departed under a cloud</h4>
+                <p>Left a major media production company under undisclosed circumstances. Part of a broader pattern of senior-level departures that would surface in a comprehensive career background check.</p>
+            </div>
+            <div class="pattern-card">
+                <div class="pattern-card-institution">Institution 3 -- 2022</div>
+                <h4>Fired after board lost confidence</h4>
+                <p>Dismissed from a third directorship in May 2022 amid allegations of signature forgery, financial irregularities, and over 30 workplace abuse complaints filed with the national actors' union.</p>
+            </div>
+        </div>
     </div>
 </section>
 
 <!-- Timeline -->
-<section class="section-dark">
+<section class="section-dark" style="padding-top: 0;">
     <div class="timeline contain-wide reveal">
         <div class="timeline-header">
             <div class="label label-dark">Timeline</div>
-            <h2>What was already public<br>before election day</h2>
+            <h2>What was already public<br>before nomination day</h2>
         </div>
 
         <div class="timeline-grid">
@@ -614,13 +672,13 @@
             <!-- Entry 1 -->
             <div class="timeline-entry">
                 <div class="timeline-date">
-                    <div class="timeline-date-main">Apr -- Aug 2025</div>
+                    <div class="timeline-date-main">Nov 2009</div>
                 </div>
                 <div class="timeline-line"><div class="timeline-dot dot-caution"></div></div>
                 <div class="timeline-content">
-                    <h3>Labour union flags irregular working conditions</h3>
-                    <p>Trade union 3F contacted the candidate repeatedly about irregular conditions at his construction company -- including workers removing asbestos panels without proper safety procedures.</p>
-                    <div class="timeline-source">Source: Fagbladet 3F, Arbejdstilsynet records</div>
+                    <h3>Dismissed for undisclosed financial self-dealing</h3>
+                    <p>Fired as director after receiving DKK 168,421 in royalty payments from a venue production without board knowledge -- a direct breach of his employment contract. Settled on terms where he retained the payment and received an additional DKK 240,000 bonus.</p>
+                    <div class="timeline-source">Source: Published media, institutional records</div>
                     <div><span class="timeline-flag flag-caution">Previo: Caution</span></div>
                 </div>
             </div>
@@ -628,13 +686,13 @@
             <!-- Entry 2 -->
             <div class="timeline-entry">
                 <div class="timeline-date">
-                    <div class="timeline-date-main">Jun 2025</div>
+                    <div class="timeline-date-main">~2017</div>
                 </div>
                 <div class="timeline-line"><div class="timeline-dot dot-danger"></div></div>
                 <div class="timeline-content">
-                    <h3>Labour inspectorate issues immediate enforcement order</h3>
-                    <p>Denmark's Arbejdstilsynet found two Uzbek workers on the candidate's construction site -- working under dangerous conditions and without pay. An immediate enforcement order was issued and the tax authorities were notified.</p>
-                    <div class="timeline-source">Source: Arbejdstilsynet enforcement records, TV 2</div>
+                    <h3>Alleged signature forgery on official document</h3>
+                    <p>A board member's signature was allegedly forged on a document submitted to the Danish Business Authority. An audio recording published by a national business newspaper purportedly captured the incident. The board chose not to file a police report. The candidate denied the allegation, filed a defamation suit, then dropped it under mutual confidentiality.</p>
+                    <div class="timeline-source">Source: Borsen, Kristeligt Dagblad</div>
                     <div><span class="timeline-flag flag-danger">Previo: Do Not Proceed</span></div>
                 </div>
             </div>
@@ -642,13 +700,13 @@
             <!-- Entry 3 -->
             <div class="timeline-entry">
                 <div class="timeline-date">
-                    <div class="timeline-date-main">2024 -- 2025</div>
+                    <div class="timeline-date-main">2021</div>
                 </div>
                 <div class="timeline-line"><div class="timeline-dot dot-caution"></div></div>
                 <div class="timeline-content">
-                    <h3>Construction fraud complaints</h3>
-                    <p>A housing cooperative reported defective window installations, scaffolding erected without a municipal permit, and billing for unapproved work. The candidate signed correspondence as company "director" despite his wife being the registered director.</p>
-                    <div class="timeline-source">Source: TV 2, public municipal records (Frederiksberg Kommune)</div>
+                    <h3>Undeclared taxable benefit</h3>
+                    <p>His employer paid approximately DKK 20,000 for an Airbnb apartment without the board's knowledge. He admitted to DR that he had not declared the benefit to the tax authorities, as legally required. Tax experts confirmed this was a taxable benefit.</p>
+                    <div class="timeline-source">Source: DR Nyheder</div>
                     <div><span class="timeline-flag flag-caution">Previo: Caution</span></div>
                 </div>
             </div>
@@ -656,53 +714,67 @@
             <!-- Entry 4 -->
             <div class="timeline-entry">
                 <div class="timeline-date">
-                    <div class="timeline-date-main">Nov 2025</div>
+                    <div class="timeline-date-main">May 2022</div>
                 </div>
                 <div class="timeline-line"><div class="timeline-dot dot-danger"></div></div>
                 <div class="timeline-content">
-                    <h3>Company declared bankrupt</h3>
-                    <p>The candidate's construction company was declared bankrupt by the District Court, with DKK 1.6 million in outstanding claims. The petition was filed by the Danish Debt Recovery Agency.</p>
-                    <div class="timeline-source">Source: CVR (Danish business registry), court records</div>
+                    <h3>Third senior dismissal</h3>
+                    <p>Fired from his directorship after the board lost confidence. This was the third institution to terminate a senior role with the candidate. The board cited "fundamental management and business disagreements."</p>
+                    <div class="timeline-source">Source: Altinget, DR</div>
                     <div><span class="timeline-flag flag-danger">Previo: Do Not Proceed</span></div>
                 </div>
             </div>
 
-            <!-- Election day marker -->
+            <!-- Entry 5 -->
             <div class="timeline-entry">
                 <div class="timeline-date">
-                    <div class="timeline-date-main" style="color: var(--teal);">24 Mar 2026</div>
-                    <div class="timeline-date-sub">Election day</div>
+                    <div class="timeline-date-main">Aug 2022</div>
                 </div>
-                <div class="timeline-line"><div class="timeline-dot" style="width: 12px; height: 12px; left: -5.5px;"></div></div>
+                <div class="timeline-line"><div class="timeline-dot dot-danger"></div></div>
                 <div class="timeline-content">
-                    <h3 style="color: var(--teal);">Candidate wins parliamentary seat</h3>
-                    <p>No screening was conducted. The party relied on a self-declared integrity statement.</p>
+                    <h3>30+ workplace abuse complaints surface</h3>
+                    <p>Over 30 former colleagues accused the candidate of creating a toxic and abusive workplace -- including threats, power abuse, offering sick performers cash to work against medical advice, and using a young colleague's image without consent. The national professional union confirmed receiving multiple formal complaints. Over 1,000 industry professionals signed an open letter.</p>
+                    <div class="timeline-source">Source: TV 2, Dansk Skuespillerforbund</div>
+                    <div><span class="timeline-flag flag-danger">Previo: Do Not Proceed</span></div>
                 </div>
             </div>
 
-            <!-- Post-election -->
+            <!-- Nomination marker -->
             <div class="timeline-entry">
                 <div class="timeline-date">
-                    <div class="timeline-date-main" style="color: var(--dim);">27 Mar 2026</div>
+                    <div class="timeline-date-main" style="color: var(--teal);">Late 2022</div>
+                    <div class="timeline-date-sub">Nomination</div>
+                </div>
+                <div class="timeline-line"><div class="timeline-dot" style="width: 12px; height: 12px; left: -5.5px;"></div></div>
+                <div class="timeline-content">
+                    <h3 style="color: var(--teal);">Nominated as parliamentary candidate</h3>
+                    <p>No systematic screening was conducted. The party relied on the candidate's public profile and personal assurances.</p>
+                </div>
+            </div>
+
+            <!-- Post-nomination -->
+            <div class="timeline-entry">
+                <div class="timeline-date">
+                    <div class="timeline-date-main" style="color: var(--dim);">Feb 2023</div>
                     <div class="timeline-date-sub">Post-election</div>
                 </div>
                 <div class="timeline-line"><div class="timeline-dot dot-dim"></div></div>
                 <div class="timeline-content">
-                    <h3 style="color: var(--dim);">Bankruptcy trustee files police report</h3>
-                    <p style="color: rgba(255,255,255,0.35);">The court-appointed trustee reports the candidate for grossly irresponsible business management, suspected front company structure, and misuse of company funds. Recommends bankruptcy disqualification for candidate and spouse.</p>
-                    <div class="timeline-source">Source: Altinget, Finans, TV 2</div>
+                    <h3 style="color: var(--dim);">Inappropriate messages to young party member</h3>
+                    <p style="color: rgba(255,255,255,0.35);">Sent sexualised messages to a 19-year-old member of the party's youth wing while serving as an MP. He acknowledged this constituted a #MeToo incident and an abuse of power imbalance. The youth wing demanded his resignation.</p>
+                    <div class="timeline-source">Source: TV 2 Nyheder</div>
                 </div>
             </div>
 
             <div class="timeline-entry">
                 <div class="timeline-date">
-                    <div class="timeline-date-main" style="color: var(--dim);">28 Mar 2026</div>
+                    <div class="timeline-date-main" style="color: var(--dim);">Aug 2023</div>
                 </div>
                 <div class="timeline-line"><div class="timeline-dot dot-dim"></div></div>
                 <div class="timeline-content">
-                    <h3 style="color: var(--dim);">Expelled from party</h3>
-                    <p style="color: rgba(255,255,255,0.35);">The party expels its newest parliamentarian for violating his integrity declaration and acting contrary to party values. He becomes an independent.</p>
-                    <div class="timeline-source">Source: DR, Altinget, Wikipedia</div>
+                    <h3 style="color: var(--dim);">Expelled from parliamentary group</h3>
+                    <p style="color: rgba(255,255,255,0.35);">The party concluded it was "impossible to restore trust." The party leader told him he had "no future in politics." He continued in parliament as an independent.</p>
+                    <div class="timeline-source">Source: DR Nyheder</div>
                 </div>
             </div>
 
@@ -719,30 +791,42 @@
         </div>
         <div class="score-card" style="background: var(--black); color: var(--ivory);">
             <div class="score-card-label">Previo screening report</div>
-            <div class="score-card-name">Political Candidate</div>
+            <div class="score-card-name">Public Figure -- Cultural Sector</div>
             <div class="score-card-role">Public Office -- Denmark</div>
             <div class="score-card-divider"></div>
             <div class="score-card-score">
-                <div class="score-number">45</div>
+                <div class="score-number">0</div>
                 <div class="score-max">/ 100</div>
             </div>
-            <div class="score-band">Caution -- human review required</div>
+            <div class="score-band">Do Not Proceed -- serious risk indicators</div>
             <ul class="score-deductions">
                 <li>
-                    <span class="deduction-label">Corporate insolvency (severe)</span>
-                    <span class="deduction-value">-35</span>
+                    <span class="deduction-label">Pattern: three institutional dismissals</span>
+                    <span class="deduction-value">-40</span>
                 </li>
                 <li>
-                    <span class="deduction-label">Regulatory breach (labour)</span>
-                    <span class="deduction-value">-15</span>
+                    <span class="deduction-label">Alleged document forgery (audio evidence)</span>
+                    <span class="deduction-value">-20</span>
                 </li>
                 <li>
-                    <span class="deduction-label">Construction fraud complaints</span>
+                    <span class="deduction-label">30+ workplace abuse complaints (union-confirmed)</span>
+                    <span class="deduction-value">-20</span>
+                </li>
+                <li>
+                    <span class="deduction-label">Undisclosed financial self-dealing (2009)</span>
+                    <span class="deduction-value">-10</span>
+                </li>
+                <li>
+                    <span class="deduction-label">Undeclared taxable benefit</span>
+                    <span class="deduction-value">-5</span>
+                </li>
+                <li>
+                    <span class="deduction-label">Litigation pattern (filed, then dropped)</span>
                     <span class="deduction-value">-5</span>
                 </li>
             </ul>
             <div class="score-card-footer">
-                Based on public records available before 24 March 2026. Screened across English and Danish sources. No sanctions match. No criminal conviction at time of screening.
+                Based on public records available before late 2022 nomination. Screened across English and Danish sources including DR, TV 2, Borsen, Kristeligt Dagblad, union records, and corporate registries. No sanctions match. No criminal conviction at time of screening.
             </div>
         </div>
     </div>
@@ -755,20 +839,20 @@
         <h2 style="font-family: 'Instrument Serif', serif; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; letter-spacing: -0.03em; font-weight: 400;">What the party faced instead</h2>
         <div class="aftermath-grid">
             <div class="aftermath-cell">
-                <div class="aftermath-cell-value">4 days</div>
-                <div class="aftermath-cell-label">From election victory to party expulsion</div>
+                <div class="aftermath-cell-value">&lt; 1 year</div>
+                <div class="aftermath-cell-label">From election to expulsion from parliamentary group</div>
             </div>
             <div class="aftermath-cell">
-                <div class="aftermath-cell-value">6+</div>
-                <div class="aftermath-cell-label">National media investigations (DR, TV 2, Altinget, Finans, 3F)</div>
+                <div class="aftermath-cell-value">8+</div>
+                <div class="aftermath-cell-label">National media investigations (DR, TV 2, Borsen, Altinget, Kristeligt Dagblad)</div>
             </div>
             <div class="aftermath-cell">
-                <div class="aftermath-cell-value">Police report</div>
-                <div class="aftermath-cell-label">Filed by bankruptcy trustee for financial misconduct</div>
+                <div class="aftermath-cell-value">#MeToo</div>
+                <div class="aftermath-cell-label">Sexual harassment incident involving a 19-year-old party member</div>
             </div>
             <div class="aftermath-cell">
                 <div class="aftermath-cell-value">Lost seat</div>
-                <div class="aftermath-cell-label">Candidate sits as independent -- party has no recall mechanism</div>
+                <div class="aftermath-cell-label">MP sits as independent -- party has no recall mechanism</div>
             </div>
         </div>
     </div>
@@ -777,8 +861,8 @@
 <!-- CTA -->
 <section class="section-dark">
     <div class="cta-section contain reveal">
-        <h2>The information was there. No one looked.</h2>
-        <p>Previo screens candidates against public records, adverse media, and regulatory registries -- in the candidate's own language. Findings surface before they become headlines.</p>
+        <h2>Seventeen years of public records. One automated check.</h2>
+        <p>Previo screens candidates against adverse media, regulatory registries, and corporate records -- surfacing patterns that manual vetting misses. In the candidate's own language.</p>
         <a href="https://previo-group.com" class="cta-btn">Learn more</a>
     </div>
 </section>
@@ -786,7 +870,7 @@
 <!-- Footer -->
 <footer class="section-dark case-footer">
     <div class="contain-wide case-footer-inner">
-        <p>&copy; 2026 Previo Group</p>
+        <p>&copy; 2026 Previo Group. All information sourced from published journalism and public records.</p>
         <a href="https://previo-group.com" class="logo">Previo<span class="logo-dot">.</span></a>
     </div>
 </footer>
